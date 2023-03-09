@@ -13,8 +13,7 @@ exports.config = {
   output: './output',
   helpers: {
     Appium: {
-      port: 4724,
-      URL: "localhost",
+      
       
       app: '///Users/robsonfounar/Documents/apps/app-vidacap-qa.apk',
       desiredCapabilities: {
@@ -29,8 +28,6 @@ exports.config = {
     }
   },
   include: {
-
-
     I: './steps_file.js'
   },
  
