@@ -7,22 +7,21 @@ setCommonPlugins();
 
 /** @type {CodeceptJS.MainConfig} */
 exports.config = {
-  
+
   name: 'nodeMobile',
   tests: './*_test.js',
   output: './output',
   helpers: {
     Appium: {
-      
-      
-      app: '///Users/robsonfounar/Documents/apps/app-vidacap-qa.apk',
+      app: process.env.APP,
+
       desiredCapabilities: {
-        platformName: 'Android',
-        appPackage: "com.ideamaker.vidacap.debug",
-        appActivity: "com.whitelabelcap.SplashActivity",
-        deviceName: "Pixel 2",
-        platformVersion: "9",
-        AUTOMATION_NAME: "UiAutomator2"
+        platformName: process.env.PLATFORM,
+        appPackage: process.env.PLATFORM == 'Android' ? process.env.PACKAGE : "",
+        appActivity: process.env.PLATFORM == 'Android' ? process.env.ACTIVITY : "",
+        deviceName: process.env.DEVICE,
+        platformVersion: process.env.VERSION,
+        AUTOMATION_NAME: process.env.PLATFORM  == 'Android' ? process.env.AUTOMATION : ""
       }
 
     }
@@ -30,5 +29,5 @@ exports.config = {
   include: {
     I: './steps_file.js'
   },
- 
+
 }
